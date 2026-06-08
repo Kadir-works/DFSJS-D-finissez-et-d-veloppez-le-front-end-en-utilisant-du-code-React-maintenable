@@ -23,6 +23,7 @@ ChartJS.register(
   LineElement,
   PointElement,
 );
+import Indicator from "../components/Indicator";
 
 const Home: FC = () => {
   // Anti-pattern 3 — Utilisation de `any` — typer pour garder les bénéfices TypeScript.
@@ -101,18 +102,8 @@ const Home: FC = () => {
 
         {/* Anti-pattern 8 — Cartes dupliquées — extraire en composant réutilisable (Indicator.tsx). */}
         <div className="mb-2">
-          <div className="bg-gray-800 p-6 rounded-lg shadow-lg text-center mb-2">
-            <h3 className="text-xl font-semibold mb-2">Pays participants</h3>
-            <p className="text-4xl font-bold text-blue-400">
-              {totalParticipatingCountries}
-            </p>
-          </div>
-          <div className="bg-gray-800 p-6 rounded-lg shadow-lg text-center">
-            <h3 className="text-xl font-semibold mb-2">Éditions des JO</h3>
-            <p className="text-4xl font-bold text-green-400">
-              {totalGamesEditions}
-            </p>
-          </div>
+          <Indicator title="Pays participants" value={totalParticipatingCountries} color="text-blue-400" />
+          <Indicator title="Éditions des JO" value={totalGamesEditions} color="text-green-400" />
         </div>
 
         <div className="bg-gray-800 p-8 rounded-lg shadow-xl">

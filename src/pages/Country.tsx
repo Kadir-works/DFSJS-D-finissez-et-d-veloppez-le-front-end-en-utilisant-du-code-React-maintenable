@@ -2,7 +2,7 @@ import { type FC } from "react";
 import { useParams } from "react-router-dom";
 import { Line } from "react-chartjs-2";
 import { useData } from "../hooks/useData";
-
+import Indicator from "../components/Indicator";
 
 const Country: FC = () => {
   const { id } = useParams()
@@ -83,21 +83,24 @@ if (!country) {
 
         {/* Anti-pattern 8 — Cartes dupliquées avec Home — extraire en composant réutilisable (Indicator.tsx). */}
         <div className="mb-2">
-          <div className="bg-gray-800 p-6 rounded-lg shadow-lg mb-2">
-            <h3 className="text-xl font-semibold mb-2">Participations</h3>
-            <p className="text-4xl font-bold text-blue-400">
-              {totalParticipations}
-            </p>
-          </div>
-          <div className="bg-gray-800 p-6 rounded-lg shadow-lg mb-2">
-            <h3 className="text-xl font-semibold mb-2">Total médailles</h3>
-            <p className="text-4xl font-bold text-yellow-400">{totalMedals}</p>
-          </div>
-          <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-            <h3 className="text-xl font-semibold mb-2">Total athlètes</h3>
-            <p className="text-4xl font-bold text-green-400">{totalAthletes}</p>
-          </div>
-        </div>
+  <Indicator
+    title="Participations"
+    value={totalParticipations}
+    color="text-blue-400"
+  />
+
+  <Indicator
+    title="Total médailles"
+    value={totalMedals}
+    color="text-yellow-400"
+  />
+
+  <Indicator
+    title="Total athlètes"
+    value={totalAthletes}
+    color="text-green-400"
+  />
+</div>
 
         <div className="bg-gray-800 p-8 rounded-lg shadow-xl">
           <div style={{ height: '400px' }}>

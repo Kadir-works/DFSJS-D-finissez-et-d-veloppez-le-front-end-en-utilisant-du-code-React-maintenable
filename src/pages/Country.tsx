@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import { Line } from "react-chartjs-2";
 import { useData } from "../hooks/useData";
 import Indicator from "../components/Indicator";
+import { createEvolutionData, evolutionOptions } from "../utils/chart";
 
 const Country: FC = () => {
   const { id } = useParams()
@@ -31,49 +32,9 @@ if (!country) {
   const totalParticipations = country.participations.length
 
   // Anti-pattern 10 — Préparation des données du graphique dans le composant — extraire dans une fonction ou un hook pour séparer UI et logique. https://react.dev/learn/thinking-in-react
-  const evolutionData = {
-    labels: country.participations.map((p) => p.year.toString()),
-    datasets: [
-      {
-        label: 'Nombre de médailles',
-        data: country.participations.map((p) => p.medalsCount),
-        borderColor: 'rgb(75, 192, 192)',
-        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-        tension: 0.3,
-      },
-    ],
-  }
 
-  const evolutionOptions = {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: {
-        position: 'top' as const,
-        labels: {
-          color: 'white',
-        },
-      },
-    },
-    scales: {
-      y: {
-        ticks: {
-          color: 'white',
-        },
-        grid: {
-          color: 'rgba(255, 255, 255, 0.1)',
-        },
-      },
-      x: {
-        ticks: {
-          color: 'white',
-        },
-        grid: {
-          color: 'rgba(255, 255, 255, 0.1)',
-        },
-      },
-    },
-  }
+
+  const evolutionData = createEvolutionData(country)
 
   return (
     <div className="min-h-screen bg-gray-900 text-white p-8">

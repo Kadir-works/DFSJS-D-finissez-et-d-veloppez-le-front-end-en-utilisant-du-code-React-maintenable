@@ -24,7 +24,7 @@ ChartJS.register(
   PointElement,
 );
 import Indicator from "../components/Indicator";
-import type { Country } from "../models/Country";
+import { calculateTotalMedals } from "../utils/medals";
 
 const Home: FC = () => {
   // Anti-pattern 3 — Utilisation de `any` — typer pour garder les bénéfices TypeScript.
@@ -34,12 +34,7 @@ const Home: FC = () => {
 }
 
   // Anti-pattern 6 — Logique métier complexe directement dans le composant
-  const calculateTotalMedals = (country: Country) => {
-    return country.participations.reduce(
-      (sum, p) => sum + p.medalsCount,
-      0,
-    )
-  }
+
 
   const totalParticipatingCountries = data ? data.length : 0
   const totalGamesEditions = 5

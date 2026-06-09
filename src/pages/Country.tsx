@@ -9,8 +9,6 @@ const Country: FC = () => {
 
   const { data } = useData();
 
-  // Anti-pattern 5 — console.log à retirer.
-  console.log('Loading country with id:', id)
   // Anti-pattern 3 — Utilisation de `any` pour l'état ne permettant pas de bénéficier de TypeScript.
 const country = data.find(
   (c) => c.id === Number(id)
@@ -18,8 +16,6 @@ const country = data.find(
 if (!country) {
   return <div>Chargement...</div>;
 }
-  // Anti-pattern 5 — console.log à retirer.
-  console.log('Country loaded:', country)
 
   const totalMedals = country.participations.reduce(
     (sum: any, p: any) => sum + p.medalsCount,

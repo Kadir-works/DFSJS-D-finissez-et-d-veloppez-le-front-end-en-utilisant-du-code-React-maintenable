@@ -15,8 +15,6 @@ import Country from "./pages/Country";
 
 // Anti-pattern 11 — Routing dans App.tsx — idéalement : module dédié.
 export const App: FC = () => {
-  // Anti-pattern 5 — console.log à retirer.
-  console.log('App rendered')
 
   return (
     <BrowserRouter>

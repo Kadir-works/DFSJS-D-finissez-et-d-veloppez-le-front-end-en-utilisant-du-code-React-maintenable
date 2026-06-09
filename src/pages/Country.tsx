@@ -13,7 +13,6 @@ const Country: FC = () => {
 
   const { data } = useData();
 
-  // Anti-pattern 3 — Utilisation de `any` pour l'état ne permettant pas de bénéficier de TypeScript.
 const country = data.find(
   (c) => c.id === Number(id)
 );
@@ -31,9 +30,6 @@ if (!country) {
   )
   const totalParticipations = country.participations.length
 
-  // Anti-pattern 10 — Préparation des données du graphique dans le composant — extraire dans une fonction ou un hook pour séparer UI et logique. https://react.dev/learn/thinking-in-react
-
-
   const evolutionData = createEvolutionData(country)
 
   return (
@@ -41,7 +37,6 @@ if (!country) {
       <div className="max-w-6xl mx-auto">
         <h1 className="text-4xl font-bold mb-8">{country.name}</h1>
 
-        {/* Anti-pattern 8 — Cartes dupliquées avec Home — extraire en composant réutilisable (Indicator.tsx). */}
         <div className="mb-2">
   <Indicator
     title="Participations"

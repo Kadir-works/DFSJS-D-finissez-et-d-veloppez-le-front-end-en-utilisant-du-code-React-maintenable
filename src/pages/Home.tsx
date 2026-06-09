@@ -27,22 +27,13 @@ import Indicator from "../components/Indicator";
 import { calculateTotalMedals } from "../utils/medals";
 
 const Home: FC = () => {
-  // Anti-pattern 3 — Utilisation de `any` — typer pour garder les bénéfices TypeScript.
   const { data, loading } = useData();
   if (loading) {
   return <div>Chargement...</div>;
 }
 
-  // Anti-pattern 6 — Logique métier complexe directement dans le composant
-
-
-  const totalParticipatingCountries = data ? data.length : 0
-  const totalGamesEditions = 5
-
-  // Anti-pattern 7 — État de chargement dérivé des données au lieu d'un état dédié (loading/error).
-  if (!data) {
-    return <div>Chargement...</div>
-  }
+  const totalParticipatingCountries =  data.length;
+  const totalGamesEditions = 5;
 
   const chartData = {
     labels: data.map((d) => d.name),
@@ -96,7 +87,6 @@ const Home: FC = () => {
           </p>
         </div>
 
-        {/* Anti-pattern 8 — Cartes dupliquées — extraire en composant réutilisable (Indicator.tsx). */}
         <div className="mb-2">
           <Indicator title="Pays participants" value={totalParticipatingCountries} color="text-blue-400" />
           <Indicator title="Éditions des JO" value={totalGamesEditions} color="text-green-400" />

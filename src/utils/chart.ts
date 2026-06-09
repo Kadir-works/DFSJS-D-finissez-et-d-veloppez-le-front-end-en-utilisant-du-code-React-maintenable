@@ -1,4 +1,4 @@
-// logique du graphique d'évolution des médailles d'un pays au fil du temps, extraite du composant Country pour éviter l'anti-pattern 10.
+// logique du graphique d'évolution des médailles d'un pays au fil du temps, extraite du composant Country.
 
 import type { Country } from "../models/Country";
 

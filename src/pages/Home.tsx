@@ -24,6 +24,7 @@ ChartJS.register(
   PointElement,
 );
 import Indicator from "../components/Indicator";
+import type { Country } from "../models/Country";
 
 const Home: FC = () => {
   // Anti-pattern 3 — Utilisation de `any` — typer pour garder les bénéfices TypeScript.
@@ -33,9 +34,9 @@ const Home: FC = () => {
 }
 
   // Anti-pattern 6 — Logique métier complexe directement dans le composant
-  const calculateTotalMedals = (country: any) => {
+  const calculateTotalMedals = (country: Country) => {
     return country.participations.reduce(
-      (sum: any, p: any) => sum + p.medalsCount,
+      (sum, p) => sum + p.medalsCount,
       0,
     )
   }
@@ -49,11 +50,11 @@ const Home: FC = () => {
   }
 
   const chartData = {
-    labels: data.map((d: any) => d.name),
+    labels: data.map((d) => d.name),
     datasets: [
       {
         label: 'Total des médailles',
-        data: data.map((d: any) => calculateTotalMedals(d)),
+        data: data.map((d) => calculateTotalMedals(d)),
         backgroundColor: [
           'rgba(255, 99, 132, 0.6)',
           'rgba(54, 162, 235, 0.6)',

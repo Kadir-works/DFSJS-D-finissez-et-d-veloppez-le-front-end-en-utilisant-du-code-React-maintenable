@@ -1,3 +1,6 @@
+
+// les modèles de données. décrit la structure d'un pays.
+
 export interface Participation {
   id: number;
   year: number;

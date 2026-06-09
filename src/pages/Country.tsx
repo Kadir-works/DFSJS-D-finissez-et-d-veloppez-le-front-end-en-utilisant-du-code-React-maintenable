@@ -1,3 +1,6 @@
+// affiche la page d'un pays, avec ses indicateurs titre du pays, statistiques, graphique.
+
+
 import { type FC } from "react";
 import { useParams } from "react-router-dom";
 import { Line } from "react-chartjs-2";
@@ -18,22 +21,22 @@ if (!country) {
 }
 
   const totalMedals = country.participations.reduce(
-    (sum: any, p: any) => sum + p.medalsCount,
+    (sum, p) => sum + p.medalsCount,
     0,
   )
   const totalAthletes = country.participations.reduce(
-    (sum: any, p: any) => sum + p.athleteCount,
+    (sum, p) => sum + p.athleteCount,
     0,
   )
   const totalParticipations = country.participations.length
 
   // Anti-pattern 10 — Préparation des données du graphique dans le composant — extraire dans une fonction ou un hook pour séparer UI et logique. https://react.dev/learn/thinking-in-react
   const evolutionData = {
-    labels: country.participations.map((p: any) => p.year.toString()),
+    labels: country.participations.map((p) => p.year.toString()),
     datasets: [
       {
         label: 'Nombre de médailles',
-        data: country.participations.map((p: any) => p.medalsCount),
+        data: country.participations.map((p) => p.medalsCount),
         borderColor: 'rgb(75, 192, 192)',
         backgroundColor: 'rgba(75, 192, 192, 0.2)',
         tension: 0.3,

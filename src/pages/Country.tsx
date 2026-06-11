@@ -2,7 +2,7 @@
 
 
 import { type FC } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { Line } from "react-chartjs-2";
 import { useData } from "../hooks/useData";
 import Indicator from "../components/Indicator";
@@ -35,6 +35,9 @@ if (!country) {
   return (
     <div className="min-h-screen bg-gray-900 text-white p-8">
       <div className="max-w-6xl mx-auto">
+        <Link to="/" className="inline-block mb-6text-blue-400 hover:text-blue-300">
+          ← Retour à la liste des pays
+        </Link>
         <h1 className="text-4xl font-bold mb-8">{country.name}</h1>
 
         <div className="mb-2">

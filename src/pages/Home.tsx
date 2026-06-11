@@ -11,6 +11,7 @@ import {
   PointElement,
 } from "chart.js";
 import { Pie } from "react-chartjs-2";
+import { useNavigate } from "react-router-dom";
 import { useData } from "../hooks/useData";
 
 ChartJS.register(
@@ -27,6 +28,7 @@ import Indicator from "../components/Indicator";
 import { calculateTotalMedals } from "../utils/medals";
 
 const Home: FC = () => {
+  const navigate = useNavigate();
   const { data, loading } = useData();
   if (loading) {
   return <div>Chargement...</div>;
@@ -63,6 +65,14 @@ const Home: FC = () => {
   const chartOptions = {
     responsive: true,
     maintainAspectRatio: false,
+    onClick: (_event: unknown, elements: { index: number }[]) => {
+  if (elements.length > 0) {
+    const countryIndex = elements[0].index;
+    const selectedCountry = data[countryIndex];
+
+    navigate(`/country/${selectedCountry.id}`);
+  }
+},
     plugins: {
       legend: {
         position: 'bottom' as const,

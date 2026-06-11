@@ -1,122 +1,220 @@
 # TéléSport - Olympic Games History Dashboard
 
-Interactive web application to visualize historical performance data of countries in the Olympic Games.
+Application web React permettant de visualiser les performances historiques de différents pays aux Jeux Olympiques.
 
-## 🚀 Features
+## 🚀 Fonctionnalités
 
-- **Interactive Dashboard**: View medal counts by country with interactive charts
-- **Country Details**: Explore detailed statistics for each participating country
-- **Data Visualization**: Interactive charts powered by Chart.js
-- **Responsive Design**: Optimized for desktop and mobile devices
-- **Modern Stack**: Built with React 19, TypeScript, and Tailwind CSS
+* Tableau de bord interactif présentant les statistiques olympiques.
+* Visualisation des médailles par pays via un graphique circulaire.
+* Navigation vers la fiche détaillée d'un pays.
+* Affichage des statistiques détaillées :
 
-## 📋 Prerequisites
+  * nombre de participations ;
+  * nombre total de médailles ;
+  * nombre total d’athlètes.
+* Graphique d’évolution des performances d’un pays.
+* Gestion des erreurs :
 
-- **Node.js** 22 LTS or higher
-- **npm** (included with Node.js)
+  * URL inconnue (404) ;
+  * pays introuvable.
+* Interface responsive (desktop et mobile).
 
-## 🛠️ Installation
+---
 
-Clone the repository:
+## 🛠️ Technologies utilisées
+
+* React 19
+* TypeScript
+* Vite
+* React Router
+* Chart.js
+* React ChartJS 2
+* Tailwind CSS
+* ESLint
+
+---
+
+## 📋 Prérequis
+
+* Node.js 22 ou supérieur
+* npm
+
+---
+
+## ⚙️ Installation
+
+Cloner le projet :
 
 ```bash
-git clone https://github.com/openclassrooms/p2-dfsjs.git
+git clone <url-du-repository>
 cd p2-dfsjs
 ```
 
-Install dependencies:
+Installer les dépendances :
 
 ```bash
 npm install
 ```
 
-## 🎯 Usage
+---
 
-### Development Server
+## ▶️ Lancer le projet
 
-Start the development server:
+Mode développement :
 
 ```bash
 npm run dev
 ```
 
-The application will be available at [http://localhost:5173](http://localhost:5173)
+L’application sera disponible à l’adresse :
 
-### Production Build
-
-Build the application for production:
-
-```bash
-npm run build
+```text
+http://localhost:5173
 ```
 
-### Linting
+---
 
-Run the linter to check code quality:
+## 🏗️ Architecture du projet
+
+```text
+src/
+├── components/
+│   └── Indicator.tsx
+│
+├── hooks/
+│   └── useData.ts
+│
+├── models/
+│   └── Country.ts
+│
+├── pages/
+│   ├── Home.tsx
+│   ├── Country.tsx
+│   └── NotFound.tsx
+│
+├── utils/
+│   ├── chart.ts
+│   └── medals.ts
+│
+├── App.tsx
+├── main.tsx
+└── index.css
+```
+
+### Description des dossiers
+
+#### components/
+
+Contient les composants réutilisables de l'application.
+
+#### hooks/
+
+Contient les hooks personnalisés permettant de centraliser la logique d'accès aux données.
+
+#### models/
+
+Contient les types TypeScript utilisés dans le projet.
+
+#### pages/
+
+Contient les pages principales de l'application.
+
+#### utils/
+
+Contient les fonctions utilitaires et la logique métier indépendante des composants React.
+
+---
+
+## 📊 Architecture mise en place
+
+Le projet a été refactorisé afin de respecter les bonnes pratiques React :
+
+* séparation des responsabilités ;
+* composants réutilisables ;
+* suppression des anti-patterns identifiés ;
+* typage TypeScript renforcé ;
+* centralisation de la logique métier ;
+* préparation à une future intégration d'API backend.
+
+Une documentation complémentaire est disponible dans le fichier :
+
+```text
+ARCHITECTURE.md
+```
+
+---
+
+## 📱 Responsive Design
+
+L'application a été testée :
+
+* en version desktop ;
+* en version mobile (DevTools Chrome).
+
+---
+
+## 🚨 Gestion des erreurs
+
+L'application gère :
+
+* les routes inexistantes via une page 404 ;
+* les identifiants de pays invalides ;
+* les tentatives d'accès à des données inexistantes.
+
+---
+
+## 📷 Captures d’écran
+
+Créer un dossier :
+
+```text
+screenshots/
+```
+
+Exemple :
+
+```text
+screenshots/
+├── home-desktop.png
+├── home-mobile.png
+├── country-desktop.png
+├── country-mobile.png
+```
+
+---
+
+## 🔍 Vérification qualité
+
+Commande de lint :
 
 ```bash
 npm run lint
 ```
 
-## 📁 Project Structure
+Build de production :
 
+```bash
+npm run build
 ```
-p2-dfsjs/
-├── public/              # Static public assets
-├── src/
-│   ├── App.tsx         # Main application component
-│   ├── main.tsx        # React entry point
-│   └── index.css       # Global styles
-├── index.html          # Main HTML page
-├── package.json        # Project dependencies
-├── tsconfig.json       # TypeScript configuration
-├── vite.config.ts      # Vite configuration
-├── tailwind.config.js  # Tailwind CSS configuration
-└── .eslintrc.cjs       # ESLint configuration
-```
-
-## 🔧 Tech Stack
-
-- **React 19** - UI library with latest features
-- **TypeScript** - Static type checking
-- **Vite 5** - Fast build tool and dev server
-- **Tailwind CSS 4** - Utility-first CSS framework
-- **React Router 6** - Client-side routing
-- **Chart.js** - Interactive data visualization
-- **ESLint** - Code quality and consistency
-
-## 📊 Data
-
-The application currently uses mock data to simulate Olympic Games statistics. This architecture is designed to facilitate future integration with a REST API backend.
-
-## 🎨 Design
-
-The application features:
-
-- Clean, modern interface optimized for data visualization
-- Responsive layout adapting to all screen sizes
-- Interactive charts with hover effects
-- Smooth navigation between pages
-
-## 📚 Documentation
-
-For more information on the technologies used:
-
-- [React Documentation](https://react.dev)
-- [TypeScript Handbook](https://www.typescriptlang.org/docs/)
-- [Vite Guide](https://vitejs.dev)
-- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
-- [React Router Documentation](https://reactrouter.com)
-- [Chart.js Documentation](https://www.chartjs.org/docs/latest/)
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## 📝 License
-
-This project is available for educational and personal use.
 
 ---
 
-**Built with React 19 + TypeScript + Vite + Tailwind CSS**
+## 📚 Projet OpenClassrooms
+
+Projet réalisé dans le cadre de la formation :
+
+**Développeur Front-End JavaScript React**
+
+Objectifs :
+
+* Architecture React maintenable ;
+* React Router ;
+* TypeScript ;
+* Refactorisation de code ;
+* Bonnes pratiques de développement.
+
+---
+
+## 📝 Licence
+
+Projet réalisé à des fins pédagogiques dans le cadre de la formation OpenClassrooms.

@@ -17,7 +17,24 @@ const country = data.find(
   (c) => c.id === Number(id)
 );
 if (!country) {
-  return <div>Chargement...</div>;
+  return (
+    <div className="min-h-screen bg-gray-900 text-white p-8">
+      <h1 className="text-3xl font-bold mb-4">
+        Pays introuvable
+      </h1>
+
+      <p>
+        Aucun pays ne correspond à cet identifiant.
+      </p>
+
+      <Link
+        to="/"
+        className="inline-block mt-4 text-blue-400 hover:text-blue-300"
+      >
+        ← Retour à la liste des pays
+      </Link>
+    </div>
+  );
 }
 
   const totalMedals = country.participations.reduce(

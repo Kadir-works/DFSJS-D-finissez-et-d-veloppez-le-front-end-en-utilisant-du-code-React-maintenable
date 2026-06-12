@@ -4,40 +4,43 @@ Application web React permettant de visualiser les performances historiques de d
 
 ## 🚀 Fonctionnalités
 
-* Tableau de bord interactif présentant les statistiques olympiques.
-* Visualisation des médailles par pays via un graphique circulaire.
-* Navigation vers la fiche détaillée d'un pays.
-* Affichage des statistiques détaillées :
+- Tableau de bord interactif présentant les statistiques olympiques.
+- Visualisation des médailles par pays via un graphique circulaire.
+- Navigation vers la fiche détaillée d'un pays.
+- Affichage des statistiques détaillées :
+  - nombre de participations ;
+  - nombre total de médailles ;
+  - nombre total d’athlètes.
 
-  * nombre de participations ;
-  * nombre total de médailles ;
-  * nombre total d’athlètes.
-* Graphique d’évolution des performances d’un pays.
-* Gestion des erreurs :
+- Graphique d’évolution des performances d’un pays.
+- Gestion des erreurs :
+  - URL inconnue (404) ;
+  - pays introuvable.
 
-  * URL inconnue (404) ;
-  * pays introuvable.
-* Interface responsive (desktop et mobile).
+- Interface responsive (desktop et mobile).
 
 ---
 
 ## 🛠️ Technologies utilisées
 
-* React 19
-* TypeScript
-* Vite
-* React Router
-* Chart.js
-* React ChartJS 2
-* Tailwind CSS
-* ESLint
+| Technologie      | Version |
+| ---------------- | ------- |
+| React            | 19.2.0  |
+| React DOM        | 19.2.0  |
+| TypeScript       | 5.9.3   |
+| Vite             | 7.2.4   |
+| React Router DOM | 6.22.0  |
+| Chart.js         | 4.4.1   |
+| React ChartJS 2  | 5.2.0   |
+| Tailwind CSS     | 4.1.18  |
+| ESLint           | 9.39.1  |
 
 ---
 
 ## 📋 Prérequis
 
-* Node.js 22 ou supérieur
-* npm
+- Node.js 22 ou supérieur
+- npm
 
 ---
 
@@ -129,12 +132,12 @@ Contient les fonctions utilitaires et la logique métier indépendante des compo
 
 Le projet a été refactorisé afin de respecter les bonnes pratiques React :
 
-* séparation des responsabilités ;
-* composants réutilisables ;
-* suppression des anti-patterns identifiés ;
-* typage TypeScript renforcé ;
-* centralisation de la logique métier ;
-* préparation à une future intégration d'API backend.
+- séparation des responsabilités ;
+- composants réutilisables ;
+- suppression des anti-patterns identifiés ;
+- typage TypeScript renforcé ;
+- centralisation de la logique métier ;
+- préparation à une future intégration d'API backend.
 
 Une documentation complémentaire est disponible dans le fichier :
 
@@ -148,8 +151,8 @@ ARCHITECTURE.md
 
 L'application a été testée :
 
-* en version desktop ;
-* en version mobile (DevTools Chrome).
+- en version desktop ;
+- en version mobile (DevTools Chrome).
 
 ---
 
@@ -157,9 +160,9 @@ L'application a été testée :
 
 L'application gère :
 
-* les routes inexistantes via une page 404 ;
-* les identifiants de pays invalides ;
-* les tentatives d'accès à des données inexistantes.
+- les routes inexistantes via une page 404 ;
+- les identifiants de pays invalides ;
+- les tentatives d'accès à des données inexistantes.
 
 ---
 
@@ -207,11 +210,11 @@ Projet réalisé dans le cadre de la formation :
 
 Objectifs :
 
-* Architecture React maintenable ;
-* React Router ;
-* TypeScript ;
-* Refactorisation de code ;
-* Bonnes pratiques de développement.
+- Architecture React maintenable ;
+- React Router ;
+- TypeScript ;
+- Refactorisation de code ;
+- Bonnes pratiques de développement.
 
 ---
 
